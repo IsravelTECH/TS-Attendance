@@ -7,7 +7,7 @@ import {
   SuperAdminOverview 
 } from './types';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://ts-attendance.onrender.com/api');
 
 class ApiService {
   private token: string | null = null;
